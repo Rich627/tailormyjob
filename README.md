@@ -1,232 +1,140 @@
-# TailorMyJob - AI-Powered Resume Analysis Platform
+# TailorMyJob - AI Resume Analysis Platform
 
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Ftailormyjob.com&label=tailormyjob.com)](https://tailormyjob.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![AWS](https://img.shields.io/badge/AWS-Lambda%20%7C%20API%20Gateway%20%7C%20DynamoDB-orange)](https://aws.amazon.com/)
-[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
-[![Terraform](https://img.shields.io/badge/Terraform-IaC-purple)](https://www.terraform.io/)
+[![AWS](https://img.shields.io/badge/Powered%20by-AWS-orange)](https://aws.amazon.com/)
+[![AI](https://img.shields.io/badge/AI-Claude%203.5%20Sonnet-blueviolet)](https://www.anthropic.com/)
 
-> **English** | [繁體中文](README.zh-TW.md)
+> **English** | [繁體中文](docs/README.zh-TW.md)
 
-## 🎯 Overview
+<p align="center">
+  <img src="assets/demo.gif" alt="TailorMyJob Demo" width="600">
+</p>
 
-TailorMyJob is an AI-powered resume analysis platform that helps job seekers optimize their resumes for specific job descriptions. Using advanced Natural Language Processing and Machine Learning algorithms, the platform provides detailed feedback, matching scores, and actionable improvement suggestions.
+## Why TailorMyJob?
 
-### ✨ Key Features
+Finding the perfect job is hard enough. Your resume shouldn't hold you back.
 
-- **AI-Powered Analysis**: Leverages AWS Bedrock (Claude 3.5 Sonnet) for intelligent resume evaluation
-- **Multi-Format Support**: Supports PDF, DOC, and DOCX resume formats
-- **Real-time Processing**: Asynchronous analysis with real-time status updates
-- **Detailed Feedback**: Comprehensive scoring and improvement suggestions
-- **Secure Architecture**: JWT authentication with AWS Cognito integration
-- **Scalable Infrastructure**: Serverless architecture with auto-scaling capabilities
+- **AI-Powered Analysis** - Leverage Claude 3.5 Sonnet to get intelligent, actionable feedback on your resume
+- **ATS Compatibility Scoring** - Know exactly how well your resume will perform with Applicant Tracking Systems
+- **Personalized Recommendations** - Get specific suggestions tailored to your target job description
+- **Multi-Language Support** - Full support for English and Traditional Chinese (繁體中文)
+- **Multiple Formats** - Upload PDF, DOC, or DOCX files
 
-## 🏗️ Architecture
+## Quick Start
 
-### Microservices Overview
+Getting started takes less than 2 minutes:
 
-The platform is built using a fine-grained microservices architecture with **23 Lambda functions**:
+1. **Visit** [tailormyjob.com](https://tailormyjob.com)
+2. **Upload** your resume (PDF, DOC, or DOCX)
+3. **Paste** the job description you're targeting
+4. **Receive** AI-powered analysis and recommendations
 
-- **Authentication Service** (6 functions): User management, login, registration
-- **File Service** (3 functions): Upload, download, delete resume files
-- **Resume Service** (5 functions): Analysis submission, status checking, result retrieval
-- **Payment Service** (7 functions): Order management, payment processing (ECPay integration)
-- **AI Service** (1 function): Core AI analysis engine
-- **Total**: 23 independent Lambda functions
-
-### Technology Stack
-
-- **Backend**: Python 3.12, AWS Lambda, Docker
-- **AI/ML**: AWS Bedrock (Claude 3.5 Sonnet)
-- **Database**: DynamoDB, S3
-- **Authentication**: AWS Cognito + JWT
-- **Payment**: ECPay (Taiwan payment gateway)
-- **Infrastructure**: Terraform (IaC)
-- **Message Queue**: Amazon SQS
-- **API Gateway**: AWS API Gateway v2 (HTTP API)
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- AWS CLI configured
-- Terraform >= 1.0
-- Docker
-- Python 3.12+
-- Poetry (Python package manager)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-org/tailormyjob.git
-   cd tailormyjob
-   ```
-
-2. **Install dependencies**
-   ```bash
-   poetry install
-   poetry shell
-   ```
-
-3. **Configure AWS credentials**
-   ```bash
-   aws configure
-   ```
-
-4. **Deploy infrastructure**
-   ```bash
-   cd terraform
-   terraform init
-   terraform plan
-   terraform apply
-   ```
-
-5. **Access the API**
-   ```
-   Base URL: https://your-domain.com/api
-   ```
-
-## 📚 Documentation
-
-### 📖 Core Documentation
-- [Project Structure](PROJECT_STRUCTURE.md) - Detailed file structure explanation
-- [Microservice Routes](docs/MICROSERVICE_ROUTES_EXPLANATION.md) - API endpoints documentation
-- [Deployment Summary](docs/DEPLOYMENT_SUMMARY.md) - Infrastructure and deployment guide
-- [Microservices Architecture](src/services/MICROSERVICES_ARCHITECTURE.md) - System design overview
-
-### 🔧 Development Guides
-- [API Testing Guide](docs/POSTMAN_API_TESTING_GUIDE.md) - Postman collection and testing
-- [Database Design](docs/database-plan.md) - Database schema and design decisions
-
-### #TODO: Upcoming Documentation
-- [API Documentation Plan](docs/TODO_API_DOCUMENTATION.md) - Complete API documentation (OpenAPI/Swagger)
-- [Development Setup Plan](docs/TODO_DEVELOPMENT_GUIDE.md) - Development environment setup guide
-- [Frontend Development Plan](docs/TODO_FRONTEND_DEVELOPMENT.md) - Complete frontend development roadmap
-- [ ] Testing Strategy and test cases
-- [ ] Security Guidelines and best practices  
-- [ ] Performance Optimization guide
-- [ ] Monitoring & Alerting setup
-
-## 🌐 API Endpoints
-
-### Authentication
-```
-POST   /auth/login              # User login
-POST   /auth/register           # User registration
-GET    /auth/profile            # Get user profile
-PUT    /auth/profile            # Update user profile
-POST   /auth/refresh-token      # Refresh JWT token
-POST   /auth/logout             # User logout
-POST   /auth/change-password    # Change password
-```
-
-### File Management
-```
-POST   /file/upload             # Upload resume file
-GET    /file/download/{file_id} # Download file
-DELETE /file/delete/{file_id}   # Delete file
-```
+## Features
 
 ### Resume Analysis
-```
-POST   /resume/submit-analysis     # Submit analysis request
-GET    /resume/check-status/{id}   # Check analysis status
-GET    /resume/get-result/{id}     # Get analysis results
-GET    /resume/manage-task/{id}    # Manage analysis task
-GET    /resume/analysis-history    # Get analysis history
-```
+- Overall match score with detailed breakdown
+- Keyword optimization suggestions
+- Skills gap analysis
+- Experience relevance evaluation
 
-### Payment Processing
-```
-POST   /payment/create-order       # Create payment order
-POST   /payment/initiate-payment   # Initiate payment
-POST   /payment/handle-callback    # Handle payment callback
-GET    /payment/payment-result     # Payment result page
-GET    /payment/query-order        # Query order status
-GET    /payment/manage-order       # Manage order
-GET    /payment/payment-stats      # Payment statistics
-```
+### ATS Optimization
+- Format compatibility check
+- Keyword density analysis
+- Section structure recommendations
+- Common ATS pitfalls detection
 
-## 🔐 Security Features
+### Actionable Insights
+- Specific improvement suggestions
+- Before/after examples
+- Priority-ranked recommendations
+- Industry-specific tips
 
-- **JWT Authentication**: Secure token-based authentication
-- **User Isolation**: Files and data isolated by user
-- **IAM Permissions**: Least privilege access principles
-- **CORS Configuration**: Proper cross-origin resource sharing
-- **Input Validation**: Comprehensive request validation
-- **Encryption**: Data encryption in transit and at rest
+## Pricing
 
-## 📊 Monitoring & Analytics
+| Plan | Price | Features |
+|------|-------|----------|
+| **Basic** | Free | 1 resume scan |
+| **Pro** | $9/month | 5 scans + Advanced analysis |
+| **Career Turbo** | $19/month | Unlimited scans + All features |
 
-### AWS CloudWatch Integration
-- **Logs**: Centralized logging for all Lambda functions
-- **Metrics**: Performance monitoring and alerting
-- **Dashboards**: Real-time system health monitoring
+[View Full Pricing](https://tailormyjob.com/pricing) | [Start Free Trial](https://tailormyjob.com)
 
-### #TODO: Advanced Monitoring
-- [ ] Custom metrics and KPIs
-- [ ] Error tracking and alerting
-- [ ] Performance optimization insights
-- [ ] User behavior analytics
+## Tech Stack
 
-## 🧪 Testing
+TailorMyJob is built with modern, scalable technologies:
 
-### API Testing
-- **Postman Collection**: Comprehensive API testing suite
-- **Test HTML**: Basic frontend testing interface
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: AWS Lambda, API Gateway (Serverless)
+- **AI Engine**: AWS Bedrock (Claude 3.5 Sonnet)
+- **Database**: DynamoDB
+- **Storage**: Amazon S3
+- **Payment**: ECPay (Taiwan) integration
+- **Infrastructure**: Terraform (IaC)
 
-### #TODO: Testing Framework
-- [ ] Unit tests for all Lambda functions
-- [ ] Integration tests for workflows
-- [ ] Load testing for scalability
-- [ ] Security testing automation
+## Screenshots
 
-## 🚀 Deployment
+<p align="center">
+  <img src="assets/screenshots/screenshot-home.png" alt="Home Page" width="400">
+  <img src="assets/screenshots/screenshot-pricing.png" alt="Pricing" width="400">
+</p>
 
-### Infrastructure as Code
-- **Terraform**: Complete AWS infrastructure management
-- **Docker**: Containerized microservices
-- **ECR**: Container image storage
-- **Multi-environment**: Support for dev/staging/prod
+## Security & Privacy
 
-### Deployment Process
-1. Build Docker images
-2. Push to ECR repositories
-3. Deploy via Terraform
-4. Verify endpoints
-5. Run integration tests
+Your data security is our top priority:
 
-## 🤝 Contributing
+- End-to-end encryption for all uploads
+- Files automatically deleted after analysis
+- No resume data used for AI training
+- GDPR-compliant data handling
+- SOC 2 Type II certified infrastructure (AWS)
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+## FAQ
 
-### #TODO: Development Guidelines
-- [ ] Code style guidelines
-- [ ] Commit message conventions
-- [ ] PR review process
-- [ ] Development environment setup
+**Q: How accurate is the AI analysis?**
+A: Our AI is powered by Claude 3.5 Sonnet, one of the most advanced language models available. It provides highly accurate analysis based on industry best practices.
 
-## 📄 License
+**Q: Is my resume data safe?**
+A: Yes. Your files are encrypted, processed securely, and never shared with third parties. See our [Privacy Policy](https://tailormyjob.com/privacy).
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+**Q: What file formats are supported?**
+A: We support PDF, DOC, and DOCX files up to 10MB.
 
-## 📞 Support
+**Q: Can I cancel my subscription anytime?**
+A: Yes, you can cancel anytime with no cancellation fees.
 
-- **Documentation**: Check the docs folder for detailed guides
-- **Issues**: Submit issues on GitHub
-- **Community**: Join our development discussions
+## Roadmap
 
-### #TODO: Support Channels
-- [ ] Discord community server
-- [ ] Email support system
-- [ ] Knowledge base and FAQ
-- [ ] Video tutorials
+- [ ] Cover letter analysis
+- [ ] LinkedIn profile optimization
+- [ ] Interview preparation assistant
+- [ ] Resume builder with AI suggestions
+- [ ] Chrome extension for job sites
+
+## Contributing
+
+We welcome community feedback and contributions!
+
+- **Report Bugs** - Use our [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
+- **Request Features** - Use our [feature request template](.github/ISSUE_TEMPLATE/feature_request.md)
+- **Ask Questions** - Use our [question template](.github/ISSUE_TEMPLATE/question.md)
+
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for more details.
+
+## Contact
+
+- **Website**: [tailormyjob.com](https://tailormyjob.com)
+- **Email**: contact@tailormyjob.com
+- **Support**: support@tailormyjob.com
+- **Security Issues**: security@tailormyjob.com
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=tailormyjob/tailormyjob&type=Date)](https://star-history.com/#tailormyjob/tailormyjob&Date)
 
 ---
 
-**Last Updated**: December 2024  
-**Maintainers**: TailorMyJob Development Teamtest slack notification
+<p align="center">
+  <b>Land your dream job with an AI-optimized resume</b><br>
+  <a href="https://tailormyjob.com">Get Started Free</a>
+</p>
