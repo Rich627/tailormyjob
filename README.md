@@ -8,7 +8,7 @@
 > **English** | [繁體中文](docs/README.zh-TW.md)
 
 <p align="center">
-  <img src="assets/demo.gif" alt="TailorMyJob Demo" width="600">
+  <img src="assets/demo.gif" alt="TailorMyJob Demo" width="800">
 </p>
 
 ## Why TailorMyJob?
