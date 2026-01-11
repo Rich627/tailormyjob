@@ -14,7 +14,7 @@ We take security seriously at TailorMyJob. We appreciate your efforts to respons
 
 ### How to Report
 
-Please report security vulnerabilities by emailing **security@tailormyjob.com** with:
+Please report security vulnerabilities by emailing **contact@tailormyjob.com** with:
 
 1. **Description** - A clear description of the vulnerability
 2. **Steps to Reproduce** - Detailed steps to reproduce the issue
@@ -75,7 +75,7 @@ To keep your account secure:
 
 ## Contact
 
-- Security issues: security@tailormyjob.com
+- Security issues: contact@tailormyjob.com
 - General support: support@tailormyjob.com
 
 ---
