@@ -7,9 +7,6 @@
 
 > [English](../README.md) | **繁體中文**
 
-<p align="center">
-  <img src="../assets/demo.gif" alt="TailorMyJob Demo" width="800">
-</p>
 
 ## 為什麼選擇 TailorMyJob？
 
