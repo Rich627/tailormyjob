@@ -75,8 +75,8 @@ TailorMyJob is built with modern, scalable technologies:
 ## Screenshots
 
 <p align="center">
-  <img src="assets/screenshots/screenshot-home.png" alt="Home Page" width="400">
-  <img src="assets/screenshots/screenshot-pricing.png" alt="Pricing" width="400">
+  <img src="assets/screenshots/screenshot-form-filled.png" alt="Upload Resume" width="400">
+  <img src="assets/screenshots/screenshot-result.png" alt="Analysis Result" width="400">
 </p>
 
 ## Security & Privacy

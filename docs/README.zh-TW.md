@@ -75,8 +75,8 @@ TailorMyJob 採用現代化、可擴展的技術：
 ## 產品截圖
 
 <p align="center">
-  <img src="../assets/screenshots/screenshot-home.png" alt="首頁" width="400">
-  <img src="../assets/screenshots/screenshot-pricing.png" alt="定價" width="400">
+  <img src="../assets/screenshots/screenshot-form-filled.png" alt="上傳履歷" width="400">
+  <img src="../assets/screenshots/screenshot-result.png" alt="分析結果" width="400">
 </p>
 
 ## 安全與隱私
