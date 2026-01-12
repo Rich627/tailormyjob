@@ -75,8 +75,7 @@ TailorMyJob is built with modern, scalable technologies:
 ## Screenshots
 
 <p align="center">
-  <img src="assets/screenshots/screenshot-form-filled.png" alt="Upload Resume" width="400">
-  <img src="assets/screenshots/screenshot-result.png" alt="Analysis Result" width="400">
+  <img src="assets/screenshots/screenshot-form-filled.png" alt="Upload Resume" width="700">
 </p>
 
 ## Security & Privacy
