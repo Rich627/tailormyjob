@@ -84,7 +84,7 @@
 A: 我們的 AI 採用 Claude 3.5 Sonnet，是目前最先進的語言模型之一。它根據業界最佳實踐提供高度準確的分析。
 
 **Q: 我的履歷資料安全嗎？**
-A: 是的。你的檔案經過加密處理，安全儲存，絕不與第三方分享。詳見我們的[隱私政策](https://tailormyjob.com/privacy)。
+A: 是的。你的檔案經過加密處理，安全儲存，絕不與第三方分享。詳見我們的[隱私政策](https://tailormyjob.com/privacy-policy)。
 
 **Q: 支援哪些檔案格式？**
 A: 我們支援 PDF、DOC 和 DOCX 檔案，檔案大小上限為 10MB。
