@@ -60,17 +60,6 @@
 
 [查看完整定價](https://tailormyjob.com/pricing) | [免費開始試用](https://tailormyjob.com)
 
-## 技術架構
-
-TailorMyJob 採用現代化、可擴展的技術：
-
-- **前端**: Next.js、React、Tailwind CSS
-- **後端**: AWS Lambda、API Gateway (無伺服器)
-- **AI 引擎**: AWS Bedrock (Claude 3.5 Sonnet)
-- **資料庫**: DynamoDB
-- **儲存**: Amazon S3
-- **金流**: ECPay 綠界金流整合
-- **基礎設施**: Terraform (IaC)
 
 ## 產品截圖
 
@@ -102,14 +91,6 @@ A: 我們支援 PDF、DOC 和 DOCX 檔案，檔案大小上限為 10MB。
 
 **Q: 可以隨時取消訂閱嗎？**
 A: 可以，你可以隨時取消，不收取任何取消費用。
-
-## 開發藍圖
-
-- [ ] 求職信分析
-- [ ] LinkedIn 個人檔案優化
-- [ ] 面試準備助手
-- [ ] AI 建議履歷生成器
-- [ ] 求職網站 Chrome 擴充功能
 
 ## 貢獻
 
