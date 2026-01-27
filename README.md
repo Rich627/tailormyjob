@@ -60,18 +60,6 @@ Getting started takes less than 2 minutes:
 
 [View Full Pricing](https://tailormyjob.com/pricing) | [Start Free Trial](https://tailormyjob.com)
 
-## Tech Stack
-
-TailorMyJob is built with modern, scalable technologies:
-
-- **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: AWS Lambda, API Gateway (Serverless)
-- **AI Engine**: AWS Bedrock (Claude 3.5 Sonnet)
-- **Database**: DynamoDB
-- **Storage**: Amazon S3
-- **Payment**: ECPay (Taiwan) integration
-- **Infrastructure**: Terraform (IaC)
-
 ## Screenshots
 
 <p align="center">
@@ -102,14 +90,6 @@ A: We support PDF, DOC, and DOCX files up to 10MB.
 
 **Q: Can I cancel my subscription anytime?**
 A: Yes, you can cancel anytime with no cancellation fees.
-
-## Roadmap
-
-- [ ] Cover letter analysis
-- [ ] LinkedIn profile optimization
-- [ ] Interview preparation assistant
-- [ ] Resume builder with AI suggestions
-- [ ] Chrome extension for job sites
 
 ## Contributing
 
