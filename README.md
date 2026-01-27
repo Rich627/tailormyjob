@@ -83,7 +83,7 @@ Your data security is our top priority:
 A: Our AI is powered by Claude 3.5 Sonnet, one of the most advanced language models available. It provides highly accurate analysis based on industry best practices.
 
 **Q: Is my resume data safe?**
-A: Yes. Your files are encrypted, processed securely, and never shared with third parties. See our [Privacy Policy](https://tailormyjob.com/privacy).
+A: Yes. Your files are encrypted, processed securely, and never shared with third parties. See our [Privacy Policy](https://tailormyjob.com/legal/privacy-policy).
 
 **Q: What file formats are supported?**
 A: We support PDF, DOC, and DOCX files up to 10MB.
