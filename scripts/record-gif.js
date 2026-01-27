@@ -30,28 +30,43 @@ async function recordDemo() {
     fs.mkdirSync(demosDir, { recursive: true });
   }
 
+  // First, login without recording
+  console.log('1. Logging in (not recorded)...');
   const browser = await chromium.launch({ headless: true });
+  const loginContext = await browser.newContext({
+    viewport: { width: 1400, height: 850 },
+    colorScheme: 'dark'
+  });
+  const loginPage = await loginContext.newPage();
+
+  await loginPage.goto(`${BASE_URL}/login`);
+  await loginPage.waitForTimeout(2000);
+  await loginPage.fill('input[type="email"]', 'test-turbo@tailormyjob.com');
+  await loginPage.fill('input[type="password"]', 'Test123@');
+  await loginPage.click('button[type="submit"]');
+  await loginPage.waitForTimeout(5000);
+
+  // Save storage state (cookies + localStorage)
+  const storageStatePath = '/tmp/auth-state.json';
+  await loginContext.storageState({ path: storageStatePath });
+  await loginContext.close();
+
+  // Now create recording context with saved state
+  console.log('2. Starting recording on Tailor page...');
   const context = await browser.newContext({
     viewport: { width: 1400, height: 850 },
+    colorScheme: 'dark',
+    storageState: storageStatePath,
     recordVideo: {
       dir: demosDir,
       size: { width: 1400, height: 850 }
     }
   });
+
   const page = await context.newPage();
 
   try {
-    // Login
-    console.log('1. Logging in...');
-    await page.goto(`${BASE_URL}/login`);
-    await page.waitForTimeout(2000);
-    await page.fill('input[type="email"]', 'test-turbo@tailormyjob.com');
-    await page.fill('input[type="password"]', 'Test123@');
-    await page.click('button[type="submit"]');
-    await page.waitForTimeout(4000);
-
-    // Go to Tailor page
-    console.log('2. Going to Tailor page...');
+    // Go directly to Tailor page (already logged in)
     await page.goto(`${BASE_URL}/tailor`);
     await page.waitForTimeout(3000);
 
@@ -77,14 +92,30 @@ async function recordDemo() {
       });
     });
 
-    // Fill job description
-    console.log('4. Filling job description...');
-    const jobDesc = `Software Engineer - Full Stack
+    // Fill job description - Real AWS Solutions Architect Intern JD
+    console.log('4. Filling job description (AWS SA Intern)...');
+    const jobDesc = `Associate Solutions Architect Intern 2026 - Amazon Web Services (AWS)
 
-Requirements:
-- 3+ years React and Node.js experience
-- AWS cloud experience
-- Strong problem-solving skills`;
+About the Role:
+AWS is seeking motivated students for our Associate Solutions Architect Intern program. This 6-month learning-focused internship serves as the pathway to the Solutions Architect Graduate Program.
+
+Key Responsibilities:
+- Complete structured training curriculum to build cloud architecture foundations and AWS services knowledge
+- Analyze customer requirements and translate them into technical solution recommendations
+- Participate in solution design sessions and shadow customer engagements
+- Work on real AWS projects, applying architecture principles
+- Develop presentation skills by communicating technical concepts to diverse audiences
+- Study and apply the AWS Well-Architected Framework
+
+Basic Qualifications:
+- Bachelor's or Master's degree in Computer Science, Engineering, or related technical field
+- Proficiency in at least one programming language (Python, Java, C++, JavaScript)
+- Knowledge of networking fundamentals, security, databases, or operating systems
+
+Preferred Qualifications:
+- Experience implementing cloud-based technology solutions
+- Experience with Big Data, Analytics, Security, DevOps, or Machine Learning
+- AWS Cloud Practitioner Certification or awareness of AWS services`;
 
     await page.locator('textarea').first().fill(jobDesc);
     await page.waitForTimeout(2000);
